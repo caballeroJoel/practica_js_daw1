@@ -1,0 +1,147 @@
+PROYECTO: GESTOR DE TAREAS TIPO KANBAN CON PERSISTENCIA
+
+ENUNCIADO
+Desarrolla una aplicación web de gestión de tareas estilo Kanban, donde un usuario pueda crear, editar, mover y eliminar tareas dentro de varias columnas.
+
+La aplicación deberá permitir organizar tareas en diferentes estados, por ejemplo:
+- Pendiente
+- En progreso
+- Completada
+
+Cada tarea tendrá información como:
+- título
+- descripción
+- prioridad
+- fecha límite
+- etiquetas
+- estado
+
+El usuario deberá poder interactuar con la interfaz de forma dinámica sin recargar la página.
+
+OBJETIVO DEL PROYECTO
+Construir una SPA sencilla en frontend con HTML, CSS y JavaScript, centrada en la manipulación del DOM, eventos, almacenamiento local y organización del código.
+
+REQUISITOS FUNCIONALES MÍNIMOS
+
+1. GESTIÓN DE TAREAS
+La aplicación debe permitir:
+- crear nuevas tareas
+- editar tareas existentes
+- eliminar tareas
+- marcar tareas como completadas
+- mover tareas entre columnas
+
+2. COLUMNAS TIPO KANBAN
+Debe haber al menos 3 columnas fijas:
+- Pendiente
+- En progreso
+- Hecha
+
+Cada tarea debe mostrarse en la columna correspondiente según su estado.
+
+3. FORMULARIOS
+Debe existir un formulario para crear y editar tareas con campos como:
+- título obligatorio
+- descripción
+- prioridad: baja, media, alta
+- fecha límite
+- etiquetas
+
+4. BÚSQUEDA Y FILTROS
+El usuario debe poder:
+- buscar tareas por texto
+- filtrar por prioridad
+- filtrar por estado
+- mostrar solo tareas vencidas
+
+5. PERSISTENCIA
+Los datos deben guardarse en localStorage, para que al recargar la página no se pierdan.
+
+6. VALIDACIONES
+El formulario debe validar:
+- título no vacío
+- longitud mínima de algunos campos
+- fechas válidas
+- mensajes de error visibles
+
+REQUISITOS TÉCNICOS
+
+HTML
+- estructura semántica
+- formularios bien organizados
+- panel principal con columnas
+- cabecera con filtros y buscador
+
+CSS
+- diseño limpio y responsive
+- tarjetas visuales para las tareas
+- colores por prioridad
+- efectos hover y feedback visual
+- modal o panel lateral para formularios
+
+JAVASCRIPT
+Debes trabajar como mínimo con:
+- manipulación del DOM
+- eventos
+- arrays y objetos
+- funciones reutilizables
+- localStorage
+- renderizado dinámico
+- validación de formularios
+- drag and drop opcional, pero muy recomendable
+
+FUNCIONALIDADES AVANZADAS PARA SUBIR NIVEL
+Estas son las que lo vuelven más demandante:
+- arrastrar tareas entre columnas con Drag & Drop
+- ordenar tareas por fecha o prioridad
+- contador de tareas por columna
+- modo oscuro
+- exportar e importar tareas en JSON
+- sistema de subtareas
+- aviso visual de tareas vencidas
+- arquitectura modular separando archivos JS
+- uso de clases o módulos ES6
+- estadísticas: total tareas, completadas, pendientes, vencidas
+
+ESTRUCTURA SUGERIDA
+
+/kanban-app
+  index.html
+  /css
+    styles.css
+  /js
+    app.js
+    tasks.js
+    storage.js
+    ui.js
+    utils.js
+
+QUÉ PRACTICARÍAS CON ESTE PROYECTO
+Con este proyecto tocarías cosas muy importantes:
+- maquetación real
+- lógica de negocio en frontend
+- separación de responsabilidades
+- manejo de estados
+- persistencia en navegador
+- filtrado de datos
+- renderizado dinámico
+- experiencia de usuario
+
+NIVEL ESTIMADO
+Le pondría un nivel 7/10 para alguien que está aprendiendo JS, porque no es solo “hacer botones”, sino que te obliga a pensar la estructura de datos y el flujo de la app.
+
+RETO EXTRA
+Hazlo sin frameworks y con esta condición:
+- todo el contenido se debe renderizar desde JavaScript a partir de un array de tareas
+- no se pueden dejar tareas hardcodeadas en el HTML salvo la estructura base
+
+Eso te hará aprender bastante más.
+
+ENTREGA IDEAL
+Tu proyecto estaría bien hecho si cumple esto:
+- interfaz clara y usable
+- código organizado
+- funcionalidades completas
+- persistencia correcta
+- filtros funcionando bien
+- diseño responsive
