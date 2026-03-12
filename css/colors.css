@@ -1,0 +1,27 @@
+:root {
+
+    --blk: #000;
+    --whi: #fff;
+    
+    --colpr1: #5f77ff;
+    
+    
+    --coltbntarea: #cccccc;
+    --coltbntareah: #acacac;
+    
+    --col_txt: #000;
+    --col_elem: #8888886c;
+    --col_form: #9aa9ff;
+    --col_body: #ffffff;
+    --col_bor: #000;
+    
+}
+
+body.dark {
+    
+    --col_txt: #f0f0f0;
+    --col_elem: #8888886c;
+    --col_body: #3a3a3d;
+    --col_bor: #f0f0f0;
+    
+}

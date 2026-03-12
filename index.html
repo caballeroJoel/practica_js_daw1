@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="./css/styles.css">
+        <link rel="icon" href="./img/logo.png" type="image/x-icon">
+        <title>Kanban</title>
+    </head>
+    <body>
+        <header class="hdr_main">
+            <div class="header_cont">
+                <div class="logo">
+                    <img src="./img/logo.png" alt="">
+                    <h1>Kanban</h1>
+                </div>
+                <div class="func">
+                    <button class="tema" id="cambTema"></button>
+                </div>
+                <div class="btn_fun">
+                    <button id="btnTask" class="tarea">+ Tarea</button>
+                    <button id="btnDeptUser" class="users">+ Usu/Dept</button>
+                </div>
+            </div>
+        </header>
+
+        <main class="index">
+            <div class="container">
+                <div class="tabla">
+                    <div id="colPend" class="colum pend"></div>
+                    <div id="colProc" class="colum proc"></div>
+                    <div id="colFin" class="colum fin"></div>
+                </div>
+            </div>
+        </main>
+
+
+        <div id="formNewTask" class="formNewTask hidde">
+            <div class="formBox">
+                <h1>Tarea #123</h1>
+    
+                <form>
+                    <div class="secc">
+                        <label for="tarea">Tarea</label>
+                        <textarea name="tarea" id="tarea"></textarea>
+                    </div>
+    
+                    <div class="secc">
+                        <label for="prori">Prioridad de la tarea</label>
+                        <select name="prori" id="prori">
+                            <option value="-" default>---</option>
+                            <option value="alta">Alta !!!</option>
+                            <option value="media">Media !!</option>
+                            <option value="baja">Baja !</option>
+                        </select>
+                    </div>
+    
+                    <div class="secc colabo">
+                        <label for="colabo">Colaboradores</label>
+                        <select name="colabo" id="colabo">
+                            <option value="-">---</option>
+                            <option value="-">---</option>
+                            <option value="-">---</option>
+                            <option value="-">---</option>
+                        </select>
+                        <button disabled>+ Añadir</button>
+                    </div>
+    
+                    <div class="secc">
+                        <label for="depart">Departamento</label>
+                        <select name="depart" id="depart">
+                            <option value="-">---</option>
+                            <option value="-">---</option>
+                            <option value="-">---</option>
+                            <option value="-">---</option>
+                        </select>
+                    </div>
+    
+                    <div class="enviar">
+                        <button id="btnNewTask">Añadir tarea</button>
+                    </div>
+    
+                </form>
+    
+            </div>
+        </div>
+
+        <div id="popUserDept" class="popUserDept hidde">
+            <div class="containerDeptUser">
+                <div class="depts">
+                    <div>
+                        <h2>Departamentos</h2>
+                        <ul id="ulDeparts"></ul>
+                    </div>
+
+                    <div class="new ">
+                        <label for="newDept">Nuevo departamento:</label>
+                        <div>
+                            <input type="text" name="newDept" id="newDept">
+                            <button id="btnNewDept">Añadir</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="users">
+                    <div>
+                        <h2>Usuarios</h2>
+                        <ul id="ulUsers">
+                            <li>
+                                <img src="./img/user.png" alt="">
+                                <p>Pepe Pilluela</p>
+                            </li>
+                            <li>
+                                <img src="./img/user.png" alt="">
+                                <p>Pepe Pilluela</p>
+                            </li>
+                            <li>
+                                <img src="./img/user.png" alt="">
+                                <p>Pepe Pilluela</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="new ">
+                        <label for="newDept">Nuevo usuario:</label>
+                        <div>
+                            <input type="text">
+                            <button>Añadir</button>
+                        </div>
+                    </div>
+    
+                </div>
+                
+            </div>
+        </div>
+
+        <script type="module" src="./js/scripts.js"></script>
+        <script type="module" src="./js/data.js"></script>
+    </body>
+</html>

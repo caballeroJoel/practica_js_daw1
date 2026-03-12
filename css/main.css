@@ -1,0 +1,306 @@
+body {
+    background-color: var(--col_body);
+}
+.hdr_main {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    background-color: var(--colpr1);
+
+    .header_cont {
+        width: 70%;
+        padding: 12px 0px;
+
+        display: grid;
+        grid-template-columns: 15% 65% 20%;
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+
+            img {
+                border-radius: 15%;
+            }
+        }
+
+        .func {
+            display: flex;
+            align-items: center;
+
+            .tema {
+                width: max-content;
+                height: max-content;
+
+                margin: 0px 20px;
+
+                background-color: var(--colpr1);
+                border: none;
+
+                cursor: pointer;
+                img {
+                    width: 30px;
+                }
+                &:hover {
+                    img {
+                        filter: invert(1);
+                    }
+                }
+            }
+        }
+
+        .btn_fun {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            button {
+                padding: 8px 16px;
+                width: 45%;
+
+                border: 1px solid var(--blk);
+                border-radius: 4px;
+                background-color: var(--coltbntarea);
+
+                font-size: medium;
+                
+                &:hover {
+                    background-color: var(--coltbntareah);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+main.index {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    .container {
+        width: 70%;
+
+        .tabla {
+            margin-top: 36px;
+            display: flex;
+            justify-content: space-between;
+
+            .colum {
+                width: 30%;
+
+                .cabe {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+
+                    padding: 12px;
+                    margin-bottom: 16px;
+                    
+                    border-radius: 8px 8px 0px 0px;
+                    background-color: var(--col_elem);
+
+                    color: var(--col_txt);
+
+                    .cont {
+                        padding: 0px 6px;
+                        border: 1px solid var(--col_bor);
+                        border-radius: 50%;
+
+                        span {
+                            font-size: small;
+                        }
+                    }
+                }
+
+                .task {
+                    padding: 12px;
+                    margin-bottom: 16px;
+
+                    border-radius: 8px;
+
+                    background-color: var(--col_elem);
+
+                    p {
+                        color: var(--col_txt);
+                        span {
+                            margin-right: 8px;
+                            font-weight: bold;
+                            color: var(--colpr1);
+                        }
+                    }
+                    .prop {
+
+                        display: flex;
+                        align-items: stretch;
+                        gap: 6px;
+
+                        margin: 8px 0px;
+
+                        .prio_alta {
+                            color: red;    
+                            font-weight: bold;
+                            font-size: large;
+                        }
+                        .users {
+
+                            img {
+                                width: 20px;
+                                border-radius: 50%;
+                                margin-right: -10px;
+                            }
+                        }
+                    }
+
+                    .depart {
+                        width: max-content;
+                        padding: 2px 30px 2px 8px;
+
+                        border-radius: 0px 15px 15px 0px;
+                        background-color: rgb(255, 106, 106);
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+
+
+.formNewTask {
+    position: fixed;
+    inset: 0;
+    background-color: #0000004b;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .formBox {
+        width: 25%;
+        padding: 16px;
+    
+        border-radius: 12px;
+        background-color: var(--col_form);
+        border: 1px solid black;
+
+        h1 {
+            margin-bottom: 32px;
+        }
+    
+        .secc {
+            display: flex;
+            flex-direction: column;
+    
+            margin-bottom: 16px;
+    
+            select {
+                padding: 6px;
+            }
+    
+            textarea {
+                padding: 6px;
+                max-width: 97%;
+                height: 20px;
+                min-height: max-content;
+            }
+    
+            &.colabo {
+                button {
+                    width: max-content;
+                    padding: 4px 8px;
+                    margin-top: 4px;
+                    border: none;
+                    border-radius: 4px;
+                }
+            }
+        }
+    
+        .enviar {
+            display: flex;
+            justify-content: flex-end;
+    
+            button {
+                padding: 4px 8px;
+            }
+    
+        }
+
+    }
+
+}
+
+.popUserDept {
+    position: fixed;
+    inset: 0;
+    background-color: #0000004b;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .containerDeptUser {
+        width: 40%;
+        padding: 16px;
+
+        display: flex;
+    
+        border-radius: 12px;
+        background-color: var(--col_form);
+        border: 1px solid black;
+
+        > div {
+            width: 100%;
+            padding: 0px 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            h2 {
+                margin-bottom: 12px;
+            }
+
+            ul {
+                margin-bottom: 12px;
+                list-style: none;
+                li {
+                    padding: 3px 20px 3px 3px;
+                    border-radius: 0px 15px 15px 0px;
+                    width: max-content;
+                }
+            }
+
+            .new {
+                display: flex;
+                flex-direction: column;
+
+                div {
+                    display: grid;
+                    grid-template-columns: 85% 15%;
+
+                    input {
+                        padding: 8px;
+                    }
+                }
+
+            }
+
+            &.users {
+                ul {
+                    li {
+                        display: flex;
+                        gap: 5px;
+                        img {
+                            width: 20px;
+                            border-radius: 50%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+@import "./colors.css";
+@import "./main.css";
+
+* {
+    margin: 0;
+    padding: 0;
+
+    font-family: "Funnel Sans";
+
+}
+
+.hidde {
+    visibility: hidden;
+}
