@@ -1,4 +1,4 @@
-import { mostrarTareas } from "./funciones.js";
+import { mostrarTareas, cargarDeptUs } from "./funciones.js";
 
 const btnTask = document.querySelector("#btnTask");
 const btnDeptUser = document.querySelector("#btnDeptUser");
@@ -19,34 +19,63 @@ btnNewTask.addEventListener("click", function (e) {
     const colabo = document.querySelector("#colabo").value;
     const depart = document.querySelector("#depart").value;
 
-    formNewTask.classList.add("hidde");
+    if(prori != "-" && colabo != "-" && depart != "-") {
 
-    let pr;
+        const form = document.querySelector(".formBox");
+        const text = form.querySelector("textarea");
+        const selects = form.querySelectorAll("select");
 
-    if(prori=="alta") pr="!!!";
-    if(prori=="media") pr="!!";
-    if(prori=="baja") pr="!";
+        text.classList.remove("error");
+        selects.forEach(select => {
+            select.classList.remove("error");
+        });
 
-    
-    const dato = localStorage.getItem("tareas");
-    const tareaLista = JSON.parse(dato) ?? [];
-    
-    tareaLista.push({
-        tarea: tarea,
-        pr: prori,
-        depart: depart,
-        estado: "1"
-    });
+        formNewTask.classList.add("hidde");
 
-    localStorage.setItem("tareas", JSON.stringify(tareaLista));
+        let pr;
+        let id;
 
-    mostrarTareas();
+        if(prori=="alta") pr="!!!";
+        if(prori=="media") pr="!!";
+        if(prori=="baja") pr="!";
+
+        
+        const dato = localStorage.getItem("tareas");
+        const tareaLista = JSON.parse(dato) ?? [];
+
+        id = tareaLista.length+1;
+
+        console.log("ID: "+id);
+        
+        tareaLista.push({
+            id: id,
+            tarea: tarea,
+            pr: prori,
+            depart: depart,
+            estado: "1"
+        });
+
+        localStorage.setItem("tareas", JSON.stringify(tareaLista));
+
+        mostrarTareas();
+    } else {
+        const form = document.querySelector(".formBox");
+        const text = form.querySelector("textarea");
+        const selects = form.querySelectorAll("select");
+
+        text.classList.add("error");
+        selects.forEach(select => {
+            select.classList.add("error");
+        });
+    }
 
 });
 
 btnNewDept.addEventListener("click", function () {
     const newDept = document.querySelector("#newDept").value;
-    let newDepart = [];
+
+    const dato = localStorage.getItem("depts");
+    const depars = JSON.parse(dato) ?? [];
 
     const colores = [
     "FF6A6A",
@@ -60,12 +89,59 @@ btnNewDept.addEventListener("click", function () {
 
     const colorAleatorio = colores[Math.floor(Math.random() * colores.length)];
 
-    console.log(colorAleatorio);
+    depars.push({dept: newDept, col: colorAleatorio});
 
-    newDepart.push({dept: newDept, col: colorAleatorio});
+    console.log(depars);
 
-    console.log(newDepart);
+    localStorage.setItem("depts", JSON.stringify(depars));
+
+    cargarDeptUs();
+
 });
+
+window.aumentarEstado = function (id) {
+    const dato = localStorage.getItem("tareas");
+    const tasks = JSON.parse(dato);
+
+    const task = tasks.find(t => t.id===id);
+
+    console.log(task);
+    
+    if(task) {
+        if(task.estado == "1") {
+            task.estado = "2";
+        } else if(task.estado == "2") {
+            task.estado = "3";
+        }
+        localStorage.setItem("tareas", JSON.stringify(tasks));
+    }
+
+    console.log(task);
+
+    mostrarTareas();
+};
+
+window.decrementarEstado = function (id) {
+    const dato = localStorage.getItem("tareas");
+    const tasks = JSON.parse(dato);
+
+    const task = tasks.find(t => t.id===id);
+
+    console.log(task);
+    
+    if(task) {
+        if(task.estado == "3") {
+            task.estado = "2";
+        } else if(task.estado == "2") {
+            task.estado = "1";
+        }
+        localStorage.setItem("tareas", JSON.stringify(tasks));
+    }
+
+    console.log(task);
+
+    mostrarTareas();
+};
 
 
 /*************** FUNCION CLASES FORM NEW TASK ***************/

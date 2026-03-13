@@ -132,35 +132,54 @@ main.index {
                             color: var(--colpr1);
                         }
                     }
-                    .prop {
+                    .prp {
+                        display: grid;
+                        grid-template-columns: 90% 10%;
 
-                        display: flex;
-                        align-items: stretch;
-                        gap: 6px;
-
-                        margin: 8px 0px;
-
-                        .prio_alta {
-                            color: red;    
-                            font-weight: bold;
-                            font-size: large;
-                        }
-                        .users {
-
-                            img {
-                                width: 20px;
-                                border-radius: 50%;
-                                margin-right: -10px;
+                        .prop {
+    
+                            display: flex;
+                            align-items: stretch;
+                            gap: 6px;
+    
+                            margin: 8px 0px;
+    
+                            .prio_alta {
+                                color: red;    
+                                font-weight: bold;
+                                font-size: large;
+                            }
+                            .users {
+    
+                                img {
+                                    width: 20px;
+                                    border-radius: 50%;
+                                    margin-right: -10px;
+                                }
                             }
                         }
-                    }
+    
+                        .depart {
+                            width: max-content;
+                            padding: 2px 30px 2px 8px;
+    
+                            border-radius: 0px 15px 15px 0px;
+                        }
 
-                    .depart {
-                        width: max-content;
-                        padding: 2px 30px 2px 8px;
+                        .cambio {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
 
-                        border-radius: 0px 15px 15px 0px;
-                        background-color: rgb(255, 106, 106);
+                            button {
+                                border: 0;
+                                background-color: #ffffff00;
+
+                                img {
+                                    width: 25px;
+                                }
+                            }
+                        }
                     }
 
                 }
@@ -293,9 +312,10 @@ main.index {
                 ul {
                     li {
                         display: flex;
+                        align-items: center;
                         gap: 5px;
                         img {
-                            width: 20px;
+                            width: 30px;
                             border-radius: 50%;
                         }
                     }

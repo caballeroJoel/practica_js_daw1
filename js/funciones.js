@@ -1,39 +1,68 @@
+/*********************** CARGA INICIAL ***************************/
+
 export function mostrarTareas() {
     
     const dato = localStorage.getItem("tareas");
     const tareaLista = JSON.parse(dato) ?? [];
+    
+    const datoD = localStorage.getItem("depts");
+    const deptsLista = JSON.parse(datoD) ?? [];
 
+    let cont=0;
+
+    tareaLista.forEach(task => {
+        if(task.estado == "1") {
+            cont++;
+        }
+    });
+    
     let cabe = `
     <div class="cabe">
         <h2>Pendientes</h2>
         <div class="cont">
-            <span>5</span>
+            <span>${cont}</span>
         </div>
     </div>
     `;
     colPend.innerHTML=cabe;
 
+    cont=0;
+    tareaLista.forEach(task => {
+        if(task.estado === "2") {
+            cont++;
+        }
+    });
+    
     cabe = `
     <div class="cabe">
-        <h2>En proceso</h2>
+    <h2>En proceso</h2>
         <div class="cont">
-            <span>5</span>
+            <span>${cont}</span>
         </div>
     </div>
     `;
     colProc.innerHTML=cabe;
-    
+        
+    cont=0;
+    tareaLista.forEach(task => {
+        if(task.estado === "3") {
+            cont++;
+        }
+    });
     cabe = `
     <div class="cabe">
         <h2>Finalizadas</h2>
         <div class="cont">
-            <span>5</span>
+            <span>${cont}</span>
         </div>
     </div>
     `;
     colFin.innerHTML=cabe;
 
     tareaLista.forEach(task => {
+
+        const deptEncontrado = deptsLista.find(d => d.dept === task.depart);
+        const colorDept = deptEncontrado ? deptEncontrado.col : "999999";
 
         let pr;
 
@@ -43,17 +72,23 @@ export function mostrarTareas() {
 
         let html = `
         <div class="task">
-            <p><span>#T123</span>${task.tarea}</p>
-            <div>
-                <div class="prop">
-                    <span class="prio_alta">${pr}</span>
-                    <div class="users">
-                        <img src="./img/user.png" alt="">
-                        <img src="./img/user.png" alt="">
+            <p><span>#Tk_${task.id}</span>${task.tarea}</p>
+            <div class="prp">
+                <div>
+                    <div class="prop">
+                        <span class="prio_alta">${pr}</span>
+                        <div class="users">
+                            <img src="./img/user.png" alt="">
+                            <img src="./img/user.png" alt="">
+                        </div>
+                    </div>
+                    <div class="depart" style="background-color: #${colorDept}">
+                        <p>${task.depart}</p>
                     </div>
                 </div>
-                <div class="depart">
-                    <p>${task.depart}</p>
+                <div class="cambio">
+                    <button onclick="aumentarEstado(${task.id})"><img src="./img/flch_derech.png"></button>
+                    <button onclick="decrementarEstado(${task.id})"><img src="./img/flch_izqui.png"></button>
                 </div>
             </div>
         </div>
@@ -73,6 +108,28 @@ export function mostrarTareas() {
     
 }
 mostrarTareas();
+export function cargarDeptUs() {
+    const dato = localStorage.getItem("depts");
+    const depars = JSON.parse(dato) ?? [];
+
+    const listaDepts = document.querySelector("#ulDeparts");
+    let html="";
+    listaDepts.innerHTML='';
+
+    depars.forEach(dept => {
+        html = `
+            <li style="background-color: #${dept.col};">${dept.dept}</li>
+        `;
+        listaDepts.innerHTML+=html;
+    });
+
+}
+cargarDeptUs();
+
+/*****************************************************************/
+
+
+/************************* CAMBIO TEMA ***************************/
 
 const tema = document.querySelector("#cambTema");
 
@@ -104,22 +161,25 @@ function cambioTema() {
 }
 aplicarTema();
 
-function cargarDeptUs() {
-    const dato = localStorage.getItem("depts");
-    const depars = JSON.parse(dato) ?? [];
+console.log(localStorage);
 
-    const listaDepts = document.querySelector("#ulDeparts");
+/*****************************************************************/
+
+
+function mostrarDeps() {
+    const listaDepts = document.querySelector("#depart");
+
     let html="";
-    listaDepts.innerHTML='';
+    listaDepts.innerHTML='<option value="-" default>---</option>';
 
-    depars.forEach(dept => {
-        html = `
-            <li style="background-color: #${dept.col};">${dept.dept}</li>
-        `;
-        listaDepts.innerHTML+=html;
+    const dato = localStorage.getItem("depts");
+    const dep = JSON.parse(dato) ?? [];
+
+    dep.forEach(depart => {
+        html+=`<option value="${depart.dept}">${depart.dept}</option>`;
     });
 
-}
-cargarDeptUs();
+    listaDepts.innerHTML+=html;
 
-console.log(localStorage);
+}
+mostrarDeps();
