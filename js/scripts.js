@@ -115,7 +115,9 @@ btnNewUser.addEventListener("click", function() {
     
     const numAleat = (Math.floor(Math.random() * 78))+1;
 
-    const newId = users.length+1;
+    const newId = users.length > 0
+    ? Math.max(...users.map(u => Number(u.id))) + 1
+    : 1;
     const newAvatar = "avatar_"+numAleat;
 
     // console.log(newAvatar);
@@ -259,7 +261,7 @@ window.editTaskView = function (id, e) {
                 <h2>Edit task Tk_${task.id}</h2>
             </div>
             <div>
-                <button><img src="./img/papelera.png" alt=""></button>
+                <button id="btnElimTask"><img src="./img/papelera.png" alt=""></button>
             </div>
         </div>
         <div class="cont">
@@ -326,6 +328,27 @@ document.addEventListener("click", function (e) {
 
         mostrarTareas();
         editTaskPop.classList.add("hidde");
+    }
+});
+
+document.addEventListener("click", function (e) {
+    if (e.target.closest("#btnElimTask")) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const id = document.querySelector("#idEdit").value;
+
+        const dato = localStorage.getItem("tareas");
+        const tareas = JSON.parse(dato) ?? [];
+
+        const eliminar = tareas.filter(u => u.id != id);
+
+
+        localStorage.setItem("tareas", JSON.stringify(eliminar));
+
+        mostrarTareas();
+        editTaskPop.classList.add("hidde");
+
     }
 });
 
