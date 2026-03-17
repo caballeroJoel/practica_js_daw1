@@ -44,7 +44,7 @@
             <div class="formBox">
                 <h1>Nueva tarea</h1>
                 
-                <form>
+                <form id="formTask">
                     <div class="secc">
                         <label for="tarea">Tarea</label>
                         <textarea name="tarea" id="tarea"></textarea>
@@ -62,13 +62,9 @@
     
                     <div class="secc colabo">
                         <label for="colabo">Colaboradores</label>
-                        <select name="colabo" id="colabo">
+                        <select name="colabo" id="colabo" multiple>
                             <option value="-" default>---</option>
-                            <option value="pepe">Pepe</option>
-                            <option value="-">---</option>
-                            <option value="-">---</option>
                         </select>
-                        <button disabled>+ Añadir</button>
                     </div>
     
                     <div class="secc">
@@ -95,7 +91,7 @@
                         <ul id="ulDeparts"></ul>
                     </div>
 
-                    <div class="new ">
+                    <div class="new">
                         <label for="newDept">Nuevo departamento:</label>
                         <div>
                             <input type="text" name="newDept" id="newDept">
@@ -106,27 +102,14 @@
                 <div class="users">
                     <div>
                         <h2>Usuarios</h2>
-                        <ul id="ulUsers">
-                            <li>
-                                <img src="./img/avatares/avatar_1.png" alt="">
-                                <p>Pepe Pilluela</p>
-                            </li>
-                            <li>
-                                <img src="./img/avatares/avatar_50.png" alt="">
-                                <p>Pepe Pilluela</p>
-                            </li>
-                            <li>
-                                <img src="./img/avatares/avatar_34.png" alt="">
-                                <p>Pepe Pilluela</p>
-                            </li>
-                        </ul>
+                        <ul id="ulUsers"></ul>
                     </div>
 
                     <div class="new ">
                         <label for="newDept">Nuevo usuario:</label>
                         <div>
-                            <input type="text">
-                            <button>Añadir</button>
+                            <input type="text" name="newUser" id="newUser">
+                            <button id="btnNewUser">Añadir</button>
                         </div>
                     </div>
     
@@ -134,6 +117,8 @@
                 
             </div>
         </div>
+
+        <div id="editTask" class="editTask hidde"></div>
 
         <!-- <script type="module" src="./js/data.js"></script> -->
         <script type="module" src="./js/scripts.js"></script>

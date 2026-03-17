@@ -132,6 +132,22 @@ main.index {
                             color: var(--colpr1);
                         }
                     }
+                    .titedit {
+                        display: flex;
+                        justify-content: space-between;
+                        
+                        .edit {
+                            button {
+                                border: 0;
+                                background-color: #ffffff00;
+                                cursor: pointer;
+
+                                img {
+                                    width: 15px;
+                                }
+                            }
+                        }
+                    }
                     .prp {
                         display: grid;
                         grid-template-columns: 90% 10%;
@@ -154,7 +170,7 @@ main.index {
                                 img {
                                     width: 20px;
                                     border-radius: 50%;
-                                    margin-right: -10px;
+                                    margin-right: -5px;
                                 }
                             }
                         }
@@ -287,9 +303,35 @@ main.index {
                 margin-bottom: 12px;
                 list-style: none;
                 li {
-                    padding: 3px 20px 3px 3px;
-                    border-radius: 0px 15px 15px 0px;
-                    width: max-content;
+                    padding: 4px 0px;
+                    display: flex;
+                    justify-content: space-between;
+                    
+
+                    div.pap {
+                        button {
+                            border: none;
+                            background-color: #ffffff00;
+
+                            cursor: pointer;
+
+                            img {
+                                width: 20px;
+                            }
+                        }
+                    }
+                    div.dep {
+                        padding: 3px 20px 3px 3px;
+                        border-radius: 0px 15px 15px 0px;
+                        width: max-content;
+                    }
+                    div.usr {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        gap: 6px;
+                    }
                 }
             }
 
@@ -320,6 +362,70 @@ main.index {
                         }
                     }
                 }
+            }
+        }
+    }
+}
+
+.editTask {
+    position: fixed;
+    inset: 0;
+    background-color: #0000004b;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .editTaskContainer {
+        width: 35%;
+        padding: 16px;
+    
+        border-radius: 12px;
+        background-color: var(--col_form);
+        border: 1px solid black;
+        
+        .tit {
+            margin-bottom: 12px;
+
+            display: flex;
+            justify-content: space-between;
+
+             button {
+                border: 0;
+                background-color: #ffffff00;
+                cursor: pointer;
+
+                img {
+                    width: 25px;
+                }
+            }
+        }
+
+        .cont {
+            display: flex;
+            
+            > div {
+                width: 100%;
+                padding: 0px 15px 0px 0px;
+
+                div {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                input, select {
+                    padding: 6px 8px;
+                }
+            }
+        }
+
+        .send {
+            margin: 10px 15px 0px 0px;
+            display: flex;
+            justify-content: end;
+
+            button {
+                padding: 8px 12px;
             }
         }
     }
